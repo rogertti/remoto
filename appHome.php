@@ -272,7 +272,7 @@
                   <div class="col">
                     <div class="form-group">
                       <label for="inicio"><i class="fas fa-bell"></i> In&iacute;cio</label>
-                      <input type="time" name="inicio" id="inicio" maxlength="8" min="08:30" max="18:00" value="<?php echo date('H:i'); ?>" class="form-control" placeholder="In&iacute;cio" readonly>
+                      <input type="time" name="inicio" id="inicio" maxlength="8" min="08:30" max="18:00" value="<?php echo date('H:i'); ?>" class="form-control" placeholder="In&iacute;cio" required>
                     </div>
                   </div>
                 </div>
