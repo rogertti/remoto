@@ -27,10 +27,19 @@
                     extract($row);
 
                     // format date
-                    $ano = substr($datado,0,4);
-                    $mes = substr($datado,5,2);
-                    $dia = substr($datado,8);
-                    $datado = $dia."/".$mes."/".$ano;
+                    $ano = substr($data_inicio,0,4);
+                    $mes = substr($data_inicio,5,2);
+                    $dia = substr($data_inicio,8);
+                    $data_inicio = $dia."/".$mes."/".$ano;
+
+                    if (!empty($data_fim)) {
+                        $ano = substr($data_fim,0,4);
+                        $mes = substr($data_fim,5,2);
+                        $dia = substr($data_fim,8);
+                        $data_fim = $dia."/".$mes."/".$ano;
+                    } else {
+                        $data_fim = '--/--/----';
+                    }
 
                     // format time
                     $hora_inicio = substr($hora_inicio, 0, 5).'h';
@@ -42,9 +51,10 @@
                         'cliente' => $cliente,
                         'solicitante' => $solicitante,
                         'situacao' => $situacao,
-                        'datado' => $datado,
-                        'inicio' => $hora_inicio,
-                        'fim' => $hora_fim,
+                        'data_inicio' => $data_inicio,
+                        'data_fim' => $data_fim,
+                        'hora_inicio' => $hora_inicio,
+                        'hora_fim' => $hora_fim,
                         'solicitacao' => $solicitacao
                     );
 

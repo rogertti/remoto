@@ -22,10 +22,15 @@
             $filtro = 1;
             $servico->idsituacao = $_POST['situacao'];
         }
-        if(!empty($_POST['fim'])) {
-            $servico->fim = $_POST['fim'];
+        if(!empty($_POST['data_fim'])) {
+            $servico->data_fim = $_POST['data_fim'];
         } else {
-            $servico->fim = NULL;
+            $servico->data_fim = NULL;
+        }
+        if(!empty($_POST['hora_fim'])) {
+            $servico->hora_fim = $_POST['hora_fim'];
+        } else {
+            $servico->hora_fim = NULL;
         }
         if(empty($_POST['solicitante'])) { die($msg); } else {
             $filtro++;

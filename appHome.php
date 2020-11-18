@@ -208,7 +208,8 @@
                 <thead>
                     <tr>
                         <th>Cliente: Solicitante</th>
-                        <th style="max-width: 160px;width: 150px;">Data: In&iacute;cio &#149; Fim</th>
+                        <th style="max-width: 150px;width: 130px;">In&iacute;cio</th>
+                        <th style="max-width: 150px;width: 130px;">Fim</th>
                         <th>Situa&ccedil;&atilde;o</th>
                         <th>Solicita&ccedil;&atilde;o</th>
                         <th style="max-width: 100px;width: 90px;"></th>
@@ -219,7 +220,8 @@
                 <tfoot>
                     <tr>
                         <th>Cliente: Solicitante</th>
-                        <th style="max-width: 160px;width: 150px;">Data: In&iacute;cio &#149; Fim</th>
+                        <th style="max-width: 150px;width: 130px;">In&iacute;cio</th>
+                        <th style="max-width: 150px;width: 130px;">Fim</th>
                         <th>Situa&ccedil;&atilde;o</th>
                         <th>Solicita&ccedil;&atilde;o</th>
                         <th style="max-width: 100px;width: 90px;"></th>
@@ -265,13 +267,13 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <label for="datado"><i class="fas fa-bell"></i> Data</label>
-                      <input type="date" name="datado" id="datado" maxlength="10" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="Data" readonly>
+                      <label for="datado"><i class="fas fa-bell"></i> Data Inicial</label>
+                      <input type="date" name="datado" id="datado" maxlength="10" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="Data" required>
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-group">
-                      <label for="inicio"><i class="fas fa-bell"></i> In&iacute;cio</label>
+                      <label for="inicio"><i class="fas fa-bell"></i> Hora Inicial</label>
                       <input type="time" name="inicio" id="inicio" maxlength="8" min="08:30" max="18:00" value="<?php echo date('H:i'); ?>" class="form-control" placeholder="In&iacute;cio" required>
                     </div>
                   </div>
@@ -296,15 +298,15 @@
                 </div>
                 <div class="form-group">
                   <label for="assunto">Assunto</label>
-                  <input type="text" name="assunto" id="assunto" maxlength="45" class="form-control" placeholder="Assunto">
+                  <input type="text" name="assunto" id="assunto" maxlength="100" class="form-control" placeholder="Assunto">
                 </div>
                 <div class="form-group">
                   <label for="solicitacao"><i class="fas fa-bell"></i> Solicita&ccedil;&atilde;o</label>
-                  <input type="text" name="solicitacao" id="solicitacao" maxlength="100" class="form-control" placeholder="Solicita&ccedil;&atilde;o" required>
+                  <textarea name="solicitacao" id="solicitacao" rows="2" class="form-control" placeholder="Solicita&ccedil;&atilde;o" required></textarea>
                 </div>
                 <div class="form-group">
                   <label for="procedimento">Procedimento</label>
-                  <textarea name="procedimento" id="procedimento" rows="3" class="form-control" placeholder="Procedimento"></textarea>
+                  <textarea name="procedimento" id="procedimento" rows="2" class="form-control" placeholder="Procedimento"></textarea>
                 </div>
               </div>
               <div class="modal-footer justify-content-between">
@@ -373,7 +375,7 @@
                     dataType: 'json',
                     cache: false,
                     beforeSend: function(result) {                        
-                        $('.div-load-page').removeClass('d-none').append('<p class="lead text-center"><i class="fas fa-cog fa-spin"></i></p>');
+                        $('.div-load-page').removeClass('d-none').html('<p class="lead text-center"><i class="fas fa-cog fa-spin"></i></p>');
                     },
                     error: function(result) {
                         Swal.fire({icon: 'error',html: result.responseText,showConfirmButton: false});
@@ -396,7 +398,8 @@
                                         }
 
                                         response += '<tr><td>' + data[i].cliente + ': ' + data[i].solicitante + '</td>'
-                                        + '<td>' + data[i].datado + ': ' + data[i].inicio + ' &#149; ' + data[i].fim + '</td>'
+                                        + '<td>' + data[i].data_inicio + ' &#149; ' + data[i].hora_inicio + '</td>'
+                                        + '<td>' + data[i].data_fim + ' &#149; ' + data[i].hora_fim + '</td>'
                                         + '<td>' + situacao + '</td>'
                                         + '<td>' + data[i].solicitacao + '</td>'
                                         + '<td class="td-action">'

@@ -23,11 +23,11 @@
         }
         if(empty($_POST['datado'])) { die($msg); } else {
             $filtro = 1;
-            $servico->datado = $_POST['datado'];
+            $servico->data_inicio = $_POST['datado'];
         }
         if(empty($_POST['inicio'])) { die($msg); } else {
             $filtro++;
-            $servico->inicio = $_POST['inicio'];
+            $servico->hora_inicio = $_POST['inicio'];
         }
         if(empty($_POST['solicitante'])) { die($msg); } else {
             $filtro++;

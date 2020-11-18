@@ -55,20 +55,28 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="datado"><i class="fas fa-bell"></i> Data</label>
-                    <input type="date" name="datado" id="datado_edit" maxlength="10" value="<?php echo $row->datado; ?>" class="form-control" placeholder="Data" disabled>
+                    <label for="datado"><i class="fas fa-bell"></i> Data Inicial</label>
+                    <input type="date" name="datado" id="datado_edit" maxlength="10" value="<?php echo $row->data_inicio; ?>" class="form-control" placeholder="Data Inicial" disabled>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="inicio"><i class="fas fa-bell"></i> In&iacute;cio</label>
-                    <input type="time" name="inicio" id="inicio_edit" maxlength="8" min="08:30" max="18:00" value="<?php echo $row->hora_inicio; ?>" class="form-control" placeholder="In&iacute;cio" disabled>
+                    <label for="data_fim_edit">Data Final</label>
+                    <input type="date" name="data_fim" id="data_fim_edit" maxlength="10" value="<?php echo $row->data_fim; ?>" class="form-control" placeholder="Data Final">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="inicio"><i class="fas fa-bell"></i> Hora Inicial</label>
+                    <input type="time" name="inicio" id="inicio_edit" maxlength="8" min="08:30" max="18:00" value="<?php echo $row->hora_inicio; ?>" class="form-control" placeholder="Hora Inicial" disabled>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="fim">Fim</label>
-                    <input type="time" name="fim" id="fim_edit" maxlength="8" min="08:30" max="18:00" value="<?php echo $row->hora_fim; ?>" class="form-control" placeholder="Fim">
+                    <label for="hora_fim_edit">Hora Final</label>
+                    <input type="time" name="hora_fim" id="hora_fim_edit" maxlength="8" min="08:30" max="18:00" value="<?php echo $row->hora_fim; ?>" class="form-control" placeholder="Hora Final">
                 </div>
             </div>
         </div>
