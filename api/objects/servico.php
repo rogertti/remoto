@@ -77,7 +77,7 @@
         function readAllClient($idsolicitante) {
             #$this->monitor = 'T';
 
-            $sql = $this->conn->prepare("SELECT servico.idservico,situacao.descricao AS situacao,servico.data_inicio,servico.hora_inicio,servico.hora_fim,servico.solicitacao FROM servico INNER JOIN situacao ON servico.situacao_idsituacao = situacao.idsituacao INNER JOIN solicitante ON servico.solicitante_idsolicitante = solicitante.idsolicitante INNER JOIN cliente ON solicitante.cliente_idcliente = cliente.idcliente WHERE solicitante.idsolicitante = :idsolicitante ORDER BY servico.data_inicio,servico.hora_inicio DESC");
+            $sql = $this->conn->prepare("SELECT servico.idservico,situacao.descricao AS situacao,servico.data_inicio,servico.data_fim,servico.hora_inicio,servico.hora_fim,servico.solicitacao FROM servico INNER JOIN situacao ON servico.situacao_idsituacao = situacao.idsituacao INNER JOIN solicitante ON servico.solicitante_idsolicitante = solicitante.idsolicitante INNER JOIN cliente ON solicitante.cliente_idcliente = cliente.idcliente WHERE solicitante.idsolicitante = :idsolicitante ORDER BY servico.data_inicio,servico.hora_inicio DESC");
             #$sql->bindParam(':monitor', $this->monitor, PDO::PARAM_STR);
             $sql->bindParam(':idsolicitante', $idsolicitante, PDO::PARAM_INT);
             $sql->execute();
@@ -110,7 +110,7 @@
         function searchByDate($keyword) {
             #$this->monitor = 'T';
 
-            $sql = $this->conn->prepare("SELECT servico.idservico,cliente.nome AS cliente,solicitante.nome AS solicitante,situacao.descricao AS situacao,servico.ticket,servico.data_inicio,servico.hora_inicio,servico.hora_fim,servico.assunto,servico.solicitacao,servico.procedimento,servico.monitor FROM servico INNER JOIN situacao ON servico.situacao_idsituacao = situacao.idsituacao INNER JOIN solicitante ON servico.solicitante_idsolicitante = solicitante.idsolicitante INNER JOIN cliente ON solicitante.cliente_idcliente = cliente.idcliente WHERE servico.data_inicio = :datado OR servico.data_fim = :datado ORDER BY servico.data_inicio DESC, servico.hora_inicio DESC, situacao.descricao");
+            $sql = $this->conn->prepare("SELECT servico.idservico,cliente.nome AS cliente,solicitante.nome AS solicitante,situacao.descricao AS situacao,servico.ticket,servico.data_inicio,servico.data_fim,servico.hora_inicio,servico.hora_fim,servico.assunto,servico.solicitacao,servico.procedimento,servico.monitor FROM servico INNER JOIN situacao ON servico.situacao_idsituacao = situacao.idsituacao INNER JOIN solicitante ON servico.solicitante_idsolicitante = solicitante.idsolicitante INNER JOIN cliente ON solicitante.cliente_idcliente = cliente.idcliente WHERE servico.data_inicio = :datado OR servico.data_fim = :datado ORDER BY servico.data_inicio DESC, servico.hora_inicio DESC, situacao.descricao");
             $sql->bindParam(':datado', $keyword, PDO::PARAM_STR);
             #$sql->bindParam(':monitor', $this->monitor, PDO::PARAM_STR);
             $sql->execute();

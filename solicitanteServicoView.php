@@ -55,7 +55,8 @@
         <thead>
             <tr>
                 <th>Cliente</th>
-                <th style="max-width: 210px;width: 205px;">Data: In&iacute;cio &#149; Fim</th>
+                <th style="max-width: 160px;width: 150px;">In&iacute;cio</th>
+                <th style="max-width: 160px;width: 150px;">Fim</th>
                 <th>Situa&ccedil;&atilde;o</th>
                 <th>Solicita&ccedil;&atilde;o</th>
                 <th style="max-width: 115px;width: 111px;"></th>
@@ -65,10 +66,19 @@
         <?php
             while($row = $sql->fetch(PDO::FETCH_OBJ)) {
                 // format date
-                $ano = substr($row->datado,0,4);
-                $mes = substr($row->datado,5,2);
-                $dia = substr($row->datado,8);
-                $row->datado = $dia."/".$mes."/".$ano;
+                $ano = substr($row->data_inicio,0,4);
+                $mes = substr($row->data_inicio,5,2);
+                $dia = substr($row->data_inicio,8);
+                $row->data_inicio = $dia."/".$mes."/".$ano;
+
+                if (!empty($row->data_fim)) {
+                    $ano = substr($row->data_fim,0,4);
+                    $mes = substr($row->data_fim,5,2);
+                    $dia = substr($row->data_fim,8);
+                    $row->data_fim = $dia."/".$mes."/".$ano;
+                } else {
+                    $row->data_fim = '--/--/----';
+                }
 
                 // format time
                 $row->hora_inicio = substr($row->hora_inicio, 0, 5).'h';
@@ -84,7 +94,8 @@
                 echo'
                 <tr>
                     <td>'.$_GET[''.$py_cliente.''].'</td>
-                    <td>'.$row->datado.': '.$row->hora_inicio.' &#149; '.$row->hora_fim.'</td>
+                    <td>'.$row->data_inicio.' &#149; '.$row->hora_inicio.'</td>
+                    <td>'.$row->data_fim.' &#149; '.$row->hora_fim.'</td>
                     <td>'.$row->situacao.'</td>
                     <td>'.$row->solicitacao.'</td>
                     <td class="td-action">
@@ -98,7 +109,8 @@
         <tfoot>
             <tr>
                 <th>Cliente</th>
-                <th style="max-width: 210px;width: 205px;">Data: In&iacute;cio &#149; Fim</th>
+                <th style="max-width: 160px;width: 150px;">In&iacute;cio</th>
+                <th style="max-width: 160px;width: 150px;">Fim</th>
                 <th>Situa&ccedil;&atilde;o</th>
                 <th>Solicita&ccedil;&atilde;o</th>
                 <th style="max-width: 115px;width: 111px;"></th>

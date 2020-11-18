@@ -85,10 +85,19 @@
                             }
 
                             // format date
-                            $ano = substr($row->datado,0,4);
-                            $mes = substr($row->datado,5,2);
-                            $dia = substr($row->datado,8);
-                            $row->datado = $dia."/".$mes."/".$ano;
+                            $ano = substr($row->data_inicio,0,4);
+                            $mes = substr($row->data_inicio,5,2);
+                            $dia = substr($row->data_inicio,8);
+                            $row->data_inicio = $dia."/".$mes."/".$ano;
+
+                            if (!empty($row->data_fim)) {
+                                $ano = substr($row->data_fim,0,4);
+                                $mes = substr($row->data_fim,5,2);
+                                $dia = substr($row->data_fim,8);
+                                $row->data_fim = $dia."/".$mes."/".$ano;
+                            } else {
+                                $row->data_fim = '--/--/----';
+                            }
 
                             // format time
                             $row->hora_inicio = substr($row->hora_inicio, 0, 5);
@@ -102,7 +111,8 @@
                                     '.$row->monitor.'
                                 </p>
                                 <h6>'.$row->cliente.' : '.$row->solicitante.'</h6>
-                                <h6>'.$row->datado.' : '.$row->hora_inicio.'h &#149; '.$row->hora_fim.'</h6>
+                                <h6>In&iacute;cio: '.$row->data_inicio.' &#149; '.$row->hora_inicio.'h </h6>
+                                <h6>Fim: '.$row->data_fim.' &#149; '.$row->hora_fim.' </h6>
                                 <h6>Assunto: '.$row->assunto.'</h6>
                                 <h6>Solicita&ccedil;&atilde;o: '.$row->solicitacao.'</h6>
                                 <h6>Procedimento: '.$row->procedimento.'</h6>
