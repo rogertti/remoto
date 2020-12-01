@@ -186,7 +186,7 @@
             <div class="card-body">
               <div class="div-load-page d-none"></div>
 
-              <div class="div-time d-none">
+              <div class="div-time">
                   <div class="div-time-left text-center">
                       <a class="lead" href="inicio?<?php echo $getmes; ?>=<?php echo $mesleft; ?>&<?php echo $getano; ?>=<?php echo $ano; ?>&left=1" title="M&ecirc;s anterior">
                           <i class="fas fa-arrow-left"></i>
@@ -412,7 +412,7 @@
 
                                 $('.div-load-page').addClass('d-none');
                                 $('.blockquote-data').addClass('d-none');
-                                $('.div-time').removeClass('d-none');
+                                //$('.div-time').removeClass('d-none');
                                 $('.table-data').removeClass('d-none');
                                 //$(response).appendTo($('.table-data'));
                                 $('.table-data tbody').html(response);
@@ -435,7 +435,7 @@
                                 });
                             } else {
                                 $('.div-load-page').addClass('d-none');
-                                $('.div-time').addClass('d-none');
+                                //$('.div-time').removeClass('d-none');
                                 $('.table-data').addClass('d-none');
                                 $('.blockquote-data').removeClass('d-none');
                             }

@@ -1,6 +1,7 @@
 <?php
     class Database {
         // specify your own database credentials
+
         private $type = "mysql";
         private $host = "localhost";
         private $dbname = "remoto";
@@ -9,6 +10,7 @@
         public $conn;
      
         // get the database connection
+
         public function getConnection() {
             $this->conn = null;
      
